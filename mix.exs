@@ -1,11 +1,11 @@
 defmodule MixTemplates.Mixfile do
   use Mix.Project
 
-  @name    :mix_templates
+  @name :mix_templates
   @version "0.2.1"
   @deps [
-    { :private, "> 0.0.0" },
-    { :ex_doc,  "~> 0.14", only: :dev, runtime: false },
+    {:private, "> 0.0.0"},
+    {:ex_doc, "~> 0.14", only: :dev, runtime: false}
   ]
 
   @description """
@@ -22,24 +22,26 @@ defmodule MixTemplates.Mixfile do
   ############################################################
 
   def project do
-    in_production = Mix.env == :prod
-     [
-      app:     @name,
+    in_production = Mix.env() == :prod
+
+    [
+      app: @name,
       version: @version,
-      elixir:  ">= 1.4.0",
-      deps:    @deps,
+      elixir: ">= 1.4.0",
+      deps: @deps,
       package: package(),
-      description:     @description,
-      build_embedded:  in_production,
-      start_permanent: in_production,
+      description: @description,
+      build_embedded: in_production,
+      start_permanent: in_production
     ]
   end
-
 
   defp package do
     [
       files: [
-        "lib", "mix.exs", "README.md"
+        "lib",
+        "mix.exs",
+        "README.md"
       ],
       maintainers: [
         "Dave Thomas <dave@pragdave.me>"
@@ -48,9 +50,9 @@ defmodule MixTemplates.Mixfile do
         "Apache 2 (see the file LICENSE.md for details)"
       ],
       links: %{
-        "GitHub" => "https://github.com/pragdave/mix_templates",
+        "GitHub" => "https://github.com/pragdave/mix_templates"
       },
-      version: @version,
+      version: @version
     ]
   end
 end
